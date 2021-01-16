@@ -1,0 +1,8 @@
+<h1>Select Category</h1>
+<div class="display-items">
+  <ul>
+    <li ng-repeat="item in $ctrl.categories">
+      <a ui-sref="items({categoryShortName: item.short_name})">{{ item.name }}</a>
+    </li>
+  </ul>
+</div>
