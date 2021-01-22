@@ -1,0 +1,18 @@
+<div class="container" id="display">
+  <div class="row" ng-if="myInfoCtrl.show === true">
+    <h1 id="header">User Information</h1>
+    <p>First Name: {{myInfoCtrl.user.fName}}</p><br>
+    <p>Last Name: {{myInfoCtrl.user.lName}}</p><br>
+    <p>Email: {{myInfoCtrl.user.email}}</p><br>
+    <p>Phone Number: {{myInfoCtrl.user.phone}}</p>
+    <h2>Favorite Dish</h2><br>
+    <h4><span>Dish Name:</span> {{myInfoCtrl.user.fav.name}}</h4><br>
+    <p><img width="200" height="200" ng-src="{{myInfoCtrl.api}}/images/{{myInfoCtrl.user.fav}}.jpg" alt="{{myInfoCtrl.user.fav.name}}"></p><br>
+    <p><span>Description:</span> {{myInfoCtrl.user.fav.description}}</p>
+  </div>
+  <div id="notreg" class="row" ng-if="myInfoCtrl.show === false">
+    <h2>Not Signed Up Yet. <a id="redirect" ui-sref="public.signup">Sign up now!</a></h2>
+
+  </div>
+
+</div>

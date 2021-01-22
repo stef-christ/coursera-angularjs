@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 id="formheader">Sign up to receive our newsletter</h1>
+  <form class="newsletter" ng-controller="SignUpController as signUpCtrl" name="signupForm" novalidate>
+    <label for="fName">First Name</label>
+    <input id="fname" type="text" name="fName" ng-model="signUpCtrl.user.fName"
+          minlength="3" maxlength="10" required></input><br>
+    <span ng-if="(signupForm.fName.$error.minlength || signupForm.fName.$error.required)
+                && signupForm.fName.$touched">
+      First Name must be at least 3 characters long</span>
+    <span ng-if="signupForm.fName.$error.maxlength && signupForm.fName.$touched">
+      First Name must not be longer than 10 characters</span>
+
+    <label for="lName">Last Name</label>
+    <input id="lname" type="text" name="lName" ng-model="signUpCtrl.user.lName"
+          minlength="4" maxlength="10" required></input><br>
+    <span ng-if="(signupForm.lName.$error.minlength || signupForm.lName.$error.required)
+                && signupForm.lName.$touched">
+      Last Name must be at least 4 characters long</span>
+    <span ng-if="signupForm.lName.$error.maxlength && signupForm.lName.$touched">
+      Last Name must not be longer than 10 characters</span>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" ng-model="signUpCtrl.user.email" required></input><br>
+    <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+      Must be a valid email address: handle@domain format</span>
+
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="text" name="phone" ng-model="signUpCtrl.user.phone"
+           placeholder="###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" required></input><br>
+    <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+      Phone must be in the format ###-###-####</span>
+
+    <label for="fav">Favorite Dish</label>
+    <input id="fav" type="text" name="fav" ng-model="signUpCtrl.user.favDish" required></input>
+    <span ng-if="signUpCtrl.promise == null"></span><br>
+    <span ng-if="signupForm.fav.$error.required && signupForm.$touched">
+      Favorite Item is required</span>
+
+    <button id="save" ng-disabled="signupForm.$invalid" ng-click="signUpCtrl.info(signUpCtrl.user)">Submit</button><br><br>
+    <p>{{signUpCtrl.message}}</p>
+  </form>
+</div>
